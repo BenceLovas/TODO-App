@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link href="{{ url_for('static', filename='stylesheet/style.css') }}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <form action="{{ url_for('route_todo_id_update', todo_id = todo_id) }}" method="POST">
+            <input type="text" name="title" value="{{ data_dict[todo_id]['title'] }}" maxlength="255" required>
+            <br>
+            <textarea name="details" maxlength="255" rows="4" cols="40">{{ data_dict[todo_id]['details'] }}</textarea>
+            <br>
+            <input type="submit">
+        </form>
+    </body>
+</html>

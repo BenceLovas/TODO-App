@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TODO APPLICATION</title>
+        <meta charset="UTF-8">
+        <link href="{{ url_for('static', filename='stylesheet/style.css') }}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+
+        <h1>TODO APPLICATION</h1>
+        <form action="{{ url_for('route_save') }}" method="POST">
+            <input type="text" name="title" placeholder="What's next?" maxlength="255" required>
+            <br>
+            <textarea name="details" maxlength="255" rows="4" cols="40" placeholder="Describe me..."></textarea>
+            <br>
+            <input type="submit">
+        </form>
+        {% for key in data_dict %}
+        <div class="todo-item">
+            <div class="todo-item-title">
+                <h3>{{ data_dict[key]['title'] }}</h3>
+            </div>
+            {% if data_dict[key]['details'] %}
+            <div class="todo-item-details">
+                <p>{{ data_dict[key]['details'] }}</p>
+            </div>
+            {% endif %}
+            <div class="todo-item-footer">
+                <p>{{ data_dict[key]['submission_time'] }}</p>
+                <div class="todo-item-footer-icons">
+                    <a href="{{ url_for('route_todo_id_edit', todo_id=key) }}">
+                        <img width="25" height="25" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/edit-24.png">
+                    </a>
+                    <a href="{{ url_for('route_todo_id_delete', todo_id=key) }}">
+                        <img width="25" height="25" src="https://cdn1.iconfinder.com/data/icons/toolbar-signs/512/trash-24.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </body>
+</html>

@@ -1,0 +1,51 @@
+
+body {
+    background-color: #DDD;
+    color: white;
+}
+
+textarea {
+    resize: none;
+}
+
+.todo-item {
+    padding: 0px;
+    margin: 10px 20px;
+    background-color: white;
+    width: 400px;
+    border-radius: 15px;
+}
+
+.todo-item-title {
+    background-color: black;
+    margin: 0px;
+    padding: 5px 30px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.todo-item-details {
+    color: black;
+    margin: 0px;
+    padding: 5px 30px;
+    text-align: justify;
+}
+
+.todo-item-footer {
+    background-color: #BBB;
+    margin: 0px;
+    padding: 5px 15px 10px 30px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;    
+    color: red;
+}
+
+
+.todo-item-footer * {
+    display: inline-block;
+}
+
+.todo-item-footer-icons {
+    float: right;
+    padding: 10px 10px 5px 10px;
+}
