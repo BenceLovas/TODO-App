@@ -1,6 +1,15 @@
+:root {
+    --color-blue: #44B3C2;
+    --color-yellow: #FFB310;
+    --color-red: #FA0026;
+    --color-brown: #42361E;
+    --color-grey: #6F684E;
+    --color-white: #F2EDD8;
+}
+
 
 body {
-    background-color: #DDD;
+    background-color: var(--color-grey);
     color: white;
 }
 
@@ -8,36 +17,41 @@ textarea {
     resize: none;
 }
 
+form {
+    margin: 20px 20px;
+}
+
 .todo-item {
     padding: 0px;
-    margin: 10px 20px;
-    background-color: white;
+    margin: 20px 20px;
+    background-color: var(--color-brown);
     width: 400px;
     border-radius: 15px;
 }
 
 .todo-item-title {
-    background-color: black;
+    background-color: var(--color-red);
     margin: 0px;
     padding: 5px 30px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    color: black;
 }
 
 .todo-item-details {
-    color: black;
+    color: white;
     margin: 0px;
     padding: 5px 30px;
     text-align: justify;
 }
 
 .todo-item-footer {
-    background-color: #BBB;
+    background-color: var(--color-white);
     margin: 0px;
     padding: 5px 15px 10px 30px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;    
-    color: red;
+    color: black;
 }
 
 
