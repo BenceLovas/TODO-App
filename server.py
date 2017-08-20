@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 TODO_LABELS = ['title', 'details', 'submission_time']
 
+
 @app.route('/')
 def route_index():
     data = database_manager.query_select_all()
