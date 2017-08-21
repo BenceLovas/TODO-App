@@ -6,7 +6,7 @@ from collections import OrderedDict
 
 app = Flask(__name__)
 
-TODO_LABELS = ['title', 'details', 'submission_time']
+TODO_LABELS = ['title', 'details', 'submission_time', 'elapsed_time']
 
 
 @app.route('/')
@@ -14,8 +14,11 @@ def route_index():
     data = database_manager.query_select_all()
     data_dict = common.query_to_dict(data, TODO_LABELS)
     # with SQL SORT BY, and Python 3.6 this is not needed
+    for key in data_dict.keys():
+        data_dict[key]['elapsed_time'] = common.elapsed_time(data_dict[key]['submission_time'])
     data_dict = OrderedDict(sorted(data_dict.items(), key=lambda x: x[1]['submission_time'], reverse=True))
     common.format_time_in_dict(data_dict)
+    print(data_dict)
     return render_template('index.html', data_dict=data_dict)
 
 

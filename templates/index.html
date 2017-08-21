@@ -19,6 +19,7 @@
         <div class="todo-item">
             <div class="todo-item-title">
                 <h3>{{ data_dict[key]['title'] }}</h3>
+                <p>{{ data_dict[key]['elapsed_time'] }}</p>
             </div>
             {% if data_dict[key]['details'] %}
             <div class="todo-item-details">
