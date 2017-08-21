@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
 :root {
     --color-blue: #44B3C2;
     --color-yellow: #FFB310;
@@ -6,7 +9,6 @@
     --color-grey: #6F684E;
     --color-white: #F2EDD8;
 }
-
 
 body {
     background-color: var(--color-grey);
@@ -36,13 +38,20 @@ form {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     color: black;
-}
+    font-family: 'Julius Sans One', sans-serif;
+    line-height: 1.7em;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+    }
 
 .todo-item-details {
     color: white;
     margin: 0px;
     padding: 5px 30px;
     text-align: justify;
+    font-family: 'Archivo', sans-serif;
+    line-height: 1.3em;
+    overflow-wrap: break-word;
 }
 
 .todo-item-footer {
@@ -52,6 +61,9 @@ form {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;    
     color: black;
+    text-transform: uppercase;
+    font-family: 'Archivo', sans-serif;
+    font-weight: bold;
 }
 
 

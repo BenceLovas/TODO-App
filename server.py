@@ -2,6 +2,7 @@ from flask import Flask, url_for, render_template, request, redirect
 import datetime
 import database_manager
 import common
+from collections import OrderedDict
 
 app = Flask(__name__)
 
@@ -12,6 +13,9 @@ TODO_LABELS = ['title', 'details', 'submission_time']
 def route_index():
     data = database_manager.query_select_all()
     data_dict = common.query_to_dict(data, TODO_LABELS)
+    # with SQL SORT BY, and Python 3.6 this is not needed
+    data_dict = OrderedDict(sorted(data_dict.items(), key=lambda x: x[1]['submission_time'], reverse=True))
+    common.format_time_in_dict(data_dict)
     return render_template('index.html', data_dict=data_dict)
 
 
@@ -19,6 +23,7 @@ def route_index():
 def route_save():
     data_dict = request.form.to_dict()
     data_dict['submission_time'] = datetime.datetime.now()
+    print(type(data_dict['submission_time']))
     database_manager.query_modify("INSERT INTO test (title, details, submission_time) \
                                    VALUES (%(title)s, %(details)s, %(submission_time)s)", data_dict)
     return redirect(url_for('route_index'))
@@ -33,7 +38,6 @@ def route_todo_id_edit(todo_id):
 
 @app.route('/<int:todo_id>/update', methods=['POST'])
 def route_todo_id_update(todo_id):
-    print('update form', request.form)
     database_manager.query_modify("UPDATE test SET title = %s, details = %s WHERE id = %s",
                                   (request.form['title'], request.form['details'], todo_id))
     return redirect(url_for('route_index'))
