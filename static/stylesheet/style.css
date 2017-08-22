@@ -13,6 +13,8 @@
 body {
     background-color: var(--color-grey);
     color: white;
+    margin: 0px;
+    padding: 0px;
 }
 
 textarea {
@@ -63,9 +65,7 @@ form {
     color: black;
     text-transform: uppercase;
     font-family: 'Archivo', sans-serif;
-    font-weight: bold;
 }
-
 
 .todo-item-footer * {
     display: inline-block;
@@ -82,12 +82,21 @@ form {
     margin: 10px;
 }
 
-.logo {
-    padding: 20px 30px;
-    margin: 20px;
+
+.logo img {
+    max-height: 140px;
+    max-width: 140px;
+    display: block;
+    margin: 40px auto;
 }
 
 .sidebar {
     position: fixed;
     float: left;
+    margin: 0px;
+    background-color: var(--color-brown);
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 400px;
 }
