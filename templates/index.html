@@ -27,9 +27,9 @@
             </div>
         </div>
         {% for key in data_dict %}
-        <h1>{{ data_dict[key]['type'] }}</h1>
         <div class="todo-item">
             <div class="todo-item-title">
+                <h4 class="type-first-letter">{{ data_dict[key]['type'][0] }}</h4>
                 <h3>{{ data_dict[key]['title'] }}</h3>
                 <p>{{ data_dict[key]['elapsed_time'] }}</p>
             </div>

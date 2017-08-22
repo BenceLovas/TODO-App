@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo');
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+@import url('https://fonts.googleapis.com/css?family=Changa+One');
 
 :root {
     --color-blue: #44B3C2;
@@ -99,4 +100,11 @@ form {
     left: 0px;
     height: 100%;
     width: 400px;
+}
+
+.type-first-letter {
+    float: right;
+    font-family: 'Changa One', sans-serif;
+    font-size: 20px;
+    margin: 10px 0px;
 }
