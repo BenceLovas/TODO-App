@@ -28,7 +28,17 @@
         </div>
         {% for key in data_dict %}
         <div class="todo-item">
-            <div class="todo-item-title">
+            {% if data_dict[key]['type'] == 'HOME' %}
+                <div class="todo-item-title background-red">
+            {% elif data_dict[key]['type'] == 'WORK' %}
+                <div class="todo-item-title background-blue">
+            {% elif data_dict[key]['type'] == 'STUDY' %}
+                <div class="todo-item-title background-yellow">
+            {% elif data_dict[key]['type'] == 'PERSONAL' %}
+                <div class="todo-item-title background-purple">
+            {% elif data_dict[key]['type'] == 'EAT' %}
+                <div class="todo-item-title background-teal">
+            {% endif %}
                 <h4 class="type-first-letter">{{ data_dict[key]['type'][0] }}</h4>
                 <h3>{{ data_dict[key]['title'] }}</h3>
                 <p>{{ data_dict[key]['elapsed_time'] }}</p>
@@ -40,7 +50,6 @@
             {% endif %}
             <div class="todo-item-footer">
                 <p>{{ data_dict[key]['submission_time'] }}</p>
-                <p>{{ data_dict[key]['type'] }}</p>
                 <div class="todo-item-footer-icons">
                     <a href="{{ url_for('route_todo_id_edit', todo_id=key) }}">
                         <img width="25" height="25" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/edit-24.png">

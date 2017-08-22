@@ -9,6 +9,8 @@
     --color-brown: #42361E;
     --color-grey: #6F684E;
     --color-white: #F2EDD8;
+    --color-teal: #0ad1a6;
+    --color-purple: #6a0ad1;
 }
 
 body {
@@ -35,7 +37,6 @@ form {
 }
 
 .todo-item-title {
-    background-color: var(--color-red);
     margin: 0px;
     padding: 5px 30px;
     border-top-left-radius: 15px;
@@ -46,6 +47,26 @@ form {
     text-transform: uppercase;
     overflow-wrap: break-word;
     }
+
+.background-red {
+    background-color: var(--color-red);
+}
+
+.background-blue {
+    background-color: var(--color-blue);
+}
+
+.background-yellow {
+    background-color: var(--color-yellow);
+}
+
+.background-purple {
+    background-color: var(--color-purple);
+}
+
+.background-teal {
+    background-color: var(--color-teal);
+}
 
 .todo-item-details {
     color: white;
@@ -105,6 +126,10 @@ form {
 .type-first-letter {
     float: right;
     font-family: 'Changa One', sans-serif;
+    font-weight: 100;
     font-size: 20px;
-    margin: 10px 0px;
+    padding: 5px;
+    margin: 15px -10px 0px 0px;
+    background-color: #fff;
+    border-radius: 20px;
 }
