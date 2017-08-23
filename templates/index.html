@@ -4,11 +4,13 @@
         <title>TODO APPLICATION</title>
         <meta charset="UTF-8">
         <link href="{{ url_for('static', filename='stylesheet/style.css') }}" rel="stylesheet" type="text/css">
+        <script src="../static/script/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="../static/script/script.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="sidebar">
             <div class="logo">
-                <img src="../static/img/logo_wallpaper.png">
+                <img src="../static/img/logo.png">
             </div>
             <div class="add-todo">   
                 <form action="{{ url_for('route_save') }}" method="POST">
@@ -21,6 +23,8 @@
                         <option value="{{ option }}">{{ option }}</option>
                     {% endfor %}
                     </select>
+                    <br>
+                    <input type="datetime-local" name="deadline">
                     <br>
                     <input type="submit">
                 </form>
@@ -36,7 +40,7 @@
                 <div class="todo-item-title background-yellow">
             {% elif data_dict[key]['type'] == 'PERSONAL' %}
                 <div class="todo-item-title background-purple">
-            {% elif data_dict[key]['type'] == 'EAT' %}
+            {% elif data_dict[key]['type'] == 'FOOD' %}
                 <div class="todo-item-title background-teal">
             {% endif %}
                 <h4 class="type-first-letter">{{ data_dict[key]['type'][0] }}</h4>
@@ -52,10 +56,10 @@
                 <p>{{ data_dict[key]['submission_time'] }}</p>
                 <div class="todo-item-footer-icons">
                     <a href="{{ url_for('route_todo_id_edit', todo_id=key) }}">
-                        <img width="25" height="25" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/edit-24.png">
+                        <img width="25" height="25" src="../static/img/edit.png">
                     </a>
                     <a href="{{ url_for('route_todo_id_delete', todo_id=key) }}">
-                        <img width="25" height="25" src="https://cdn1.iconfinder.com/data/icons/toolbar-signs/512/trash-24.png">
+                        <img width="25" height="25" src="../static/img/done.png">
                     </a>
                 </div>
             </div>
